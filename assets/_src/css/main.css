@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--animate-duration: 500ms;
+}
+
+.toggle__dot {
+	top: -0.25rem;
+	left: -0.25rem;
+	transition: all 0.3s ease-in-out;
+}
+
+input:checked ~ .toggle__dot {
+	transform: translateX(100%);
+	background-color: #48bb78;
+}
+.userInfo {
+	@media all and (max-width: 767px) {
+		td {
+			&:before {
+				color: #1a2238;
+				padding-right: 10px;
+				content: attr(data-label);
+				flex-basis: 50%;
+				text-align: right;
+				font-size: 0.875rem;
+				line-height: 1.25rem;
+				font-family: "Montserrat", "sans-serif";
+				font-weight: 700;
+			}
+			&:first-child {
+				&:before {
+					display: block;
+					text-align: center;
+					padding: 0;
+					margin: 10px 0;
+					text-transform: uppercase;
+				}
+			}
+		}
+		tr {
+			&:nth-child(odd) {
+				background: #f3f4f6;
+			}
+		}
+		html.dark & {
+			td {
+				&:before {
+					color: #ffffff;
+				}
+			}
+			tr {
+				&:nth-child(odd) {
+					background: #1d1d1d;
+				}
+			}
+		}
+	}
+}
+
+.chart-container {
+	min-height: 300px;
+	@media all and (min-width: 768px) {
+		height: 50vh;
+	}
+}
